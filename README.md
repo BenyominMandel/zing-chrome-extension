@@ -81,9 +81,10 @@ A Chrome extension specifically designed for [zing music](https://zingmusic.app/
 extnation/
 ├── manifest.json       # Extension configuration
 ├── background.js       # Service worker (audio capture logic)
-├── content.js         # Floating button functionality
-├── content.css        # Button styling and animations
-└── README.md          # This file
+├── content.js          # Floating button functionality
+├── content.css         # Button styling and animations
+├── LICENSE             # License file (MIT, with disclaimer)
+└── README.md           # Documentation
 ```
 
 ### Permissions Used
