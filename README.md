@@ -1,4 +1,4 @@
-# Quick Audio Downloader
+# Zing chrome extension Audio Downloader
 
 A Chrome extension specifically designed for [zing music](https://zingmusic.app/) that allows you to easily download audio tracks with a convenient floating download button.
 
