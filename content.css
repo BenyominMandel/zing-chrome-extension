@@ -1,0 +1,126 @@
+/* Floating download button styles */
+#audio-downloader-float-btn {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: not-allowed;
+  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  user-select: none;
+  opacity: 0.7;
+}
+
+#audio-downloader-float-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+#audio-downloader-float-btn:active {
+  transform: scale(0.95);
+}
+
+/* Active state when song URL is available */
+#audio-downloader-float-btn.ready {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  cursor: grab;
+  color: white;
+  opacity: 1;
+  box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+  animation: pulse 2s infinite;
+}
+
+#audio-downloader-float-btn.ready:hover {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  box-shadow: 0 6px 25px rgba(46, 204, 113, 0.6);
+}
+
+#audio-downloader-float-btn.dragging {
+  cursor: grabbing;
+  transform: scale(1.05);
+  transition: none;
+}
+
+/* Badge for download count */
+#audio-downloader-float-btn::after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+#audio-downloader-float-btn.has-badge::after {
+  transform: scale(1);
+}
+
+/* Download icon */
+#audio-downloader-float-btn .download-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Pulse animation when ready to download */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(46, 204, 113, 0.8);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+  }
+}
+
+/* Status messages */
+#audio-downloader-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 10001;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#audio-downloader-status.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#audio-downloader-status.success {
+  background: rgba(46, 204, 113, 0.9);
+}
+
+#audio-downloader-status.error {
+  background: rgba(231, 76, 60, 0.9);
+}
